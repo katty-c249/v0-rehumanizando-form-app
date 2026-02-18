@@ -91,6 +91,7 @@ export default function Home() {
 
       if (response.ok) {
         setIsSuccess(true);
+        setIsDebugOpen(true);
       } else {
         setSubmitError('Hubo un problema al enviar. Revisa tu conexión e intenta de nuevo.');
       }
@@ -347,7 +348,7 @@ export default function Home() {
             className="w-full border-t"
             style={{
               backgroundColor: '#1a1a1a',
-              height: '280px',
+              height: '140px',
               borderTopColor: '#333',
             }}
           >
