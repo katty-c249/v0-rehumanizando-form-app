@@ -11,6 +11,7 @@ interface LogEntry {
 export default function Home() {
   const [formData, setFormData] = useState({
     nombre: '',
+    email: '',
     titulo: '',
     descripcion: '',
     requiere_presupuesto: false,
@@ -59,8 +60,15 @@ export default function Home() {
     setSubmitError('');
 
     // Validation
-    if (!formData.nombre.trim() || !formData.titulo.trim() || !formData.descripcion.trim()) {
+    if (!formData.nombre.trim() || !formData.email.trim() || !formData.titulo.trim() || !formData.descripcion.trim()) {
       setSubmitError('Por favor completa todos los campos requeridos.');
+      return;
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      setSubmitError('Por favor ingresa un email válido.');
       return;
     }
 
@@ -68,6 +76,7 @@ export default function Home() {
 
     const payload = {
       nombre: formData.nombre,
+      email: formData.email,
       titulo: formData.titulo,
       descripcion: formData.descripcion,
       requiere_presupuesto: formData.requiere_presupuesto,
@@ -106,6 +115,7 @@ export default function Home() {
   const handleReset = () => {
     setFormData({
       nombre: '',
+      email: '',
       titulo: '',
       descripcion: '',
       requiere_presupuesto: false,
@@ -167,6 +177,33 @@ export default function Home() {
                   }}
                   onFocus={(e) => (e.currentTarget.style.borderColor = '#F4A261')}
                   onBlur={(e) => (e.currentTarget.style.borderColor = formData.nombre ? '#F4A261' : '#E0D5C7')}
+                />
+              </div>
+
+              {/* Email */}
+              <div>
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium mb-2"
+                  style={{ color: '#3D2B1F' }}
+                >
+                  Email *
+                </label>
+                <input
+                  id="email"
+                  type="email"
+                  name="email"
+                  placeholder="tu@email.com"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 rounded-lg border-2 focus:outline-none transition-colors"
+                  style={{
+                    backgroundColor: '#FFF8E7',
+                    borderColor: formData.email ? '#F4A261' : '#E0D5C7',
+                    color: '#3D2B1F',
+                  }}
+                  onFocus={(e) => (e.currentTarget.style.borderColor = '#F4A261')}
+                  onBlur={(e) => (e.currentTarget.style.borderColor = formData.email ? '#F4A261' : '#E0D5C7')}
                 />
               </div>
 
