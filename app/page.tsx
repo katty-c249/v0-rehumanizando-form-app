@@ -78,7 +78,7 @@ export default function Home() {
     addLog('submit_attempt', { payload });
 
     try {
-      const response = await fetch('https://hook.us2.make.com/a36me9yryqnp0i1ena748rb67tlzgono', {
+      const response = await fetch('https://hook.us2.make.com/s22hnpnakmdctkzgf0jut566avrgzwxb', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
