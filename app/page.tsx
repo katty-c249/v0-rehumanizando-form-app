@@ -280,7 +280,7 @@ export default function Home() {
                     )}
                   </div>
                   <span className="text-sm" style={{ color: '#3D2B1F' }}>
-                    Estoy dispuesto/a a donarla
+                    Estoy dispuesta(o) a donar.
                   </span>
                 </label>
               </div>
