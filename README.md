@@ -1,5 +1,5 @@
 # REHUMANIZANDO 💛
-
+![Built with AI](https://img.shields.io/badge/Built%20with-AI-blue?style=for-the-badge&logo=openai)
 ## Qué hace
 1. Ayuda a que todo el personal de una empresa aporte ideas para mejorar la convivencia, la productividad y la puntualidad.
 2. Clasifica estas ideas y/o propuestas y guía en los próximos pasos de la donación y/o a realizar un presupuesto viable; garantizando la sostenibilidad en el tiempo del mismo.
