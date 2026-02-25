@@ -144,8 +144,19 @@ export default function Home() {
             {/* Header */}
             <div className="mb-8 text-center">
               <h1 className="text-4xl font-bold mb-2" style={{ color: '#3D2B1F' }}>
-                Rehumanizando 💛
+                Rehumanizando
               </h1>
+              <div className="flex items-center justify-center gap-2 mb-3">
+                <svg
+                  className="w-6 h-6"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  style={{ color: '#F4A261' }}
+                >
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
+                <span style={{ color: '#F4A261' }}>💛</span>
+              </div>
               <p className="text-base" style={{ color: '#3D2B1F' }}>
                 Comparte tu idea para mejorar nuestra comunidad
               </p>
