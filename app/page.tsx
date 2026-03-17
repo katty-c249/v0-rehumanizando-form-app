@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
+import { User, Mail, BookOpen, FileText, Send, MessageCircle } from 'lucide-react';
 
 interface LogEntry {
   timestamp: string;
@@ -12,6 +13,7 @@ export default function Home() {
   const [formData, setFormData] = useState({
     nombre: '',
     email: '',
+    whatsapp: '',
     titulo: '',
     descripcion: '',
     requiere_presupuesto: false,
@@ -77,6 +79,7 @@ export default function Home() {
     const payload = {
       nombre: formData.nombre,
       email: formData.email,
+      whatsapp: formData.whatsapp,
       titulo: formData.titulo,
       descripcion: formData.descripcion,
       requiere_presupuesto: formData.requiere_presupuesto,
@@ -116,6 +119,7 @@ export default function Home() {
     setFormData({
       nombre: '',
       email: '',
+      whatsapp: '',
       titulo: '',
       descripcion: '',
       requiere_presupuesto: false,
@@ -143,19 +147,18 @@ export default function Home() {
           <>
             {/* Header */}
             <div className="mb-8 text-center">
-              <h1 className="text-4xl font-bold mb-2" style={{ color: '#3D2B1F' }}>
-                Rehumanizando
-              </h1>
-              <div className="flex items-center justify-center gap-2 mb-3">
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <h1 className="text-4xl font-bold" style={{ color: '#3D2B1F' }}>
+                  Rehumanizando
+                </h1>
                 <svg
-                  className="w-6 h-6"
+                  className="w-8 h-8"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                   style={{ color: '#F4A261' }}
                 >
                   <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
                 </svg>
-                <span style={{ color: '#F4A261' }}>💛</span>
               </div>
               <p className="text-base" style={{ color: '#3D2B1F' }}>
                 Comparte tu idea para mejorar nuestra comunidad
@@ -173,22 +176,25 @@ export default function Home() {
                 >
                   Nombre *
                 </label>
-                <input
-                  id="nombre"
-                  type="text"
-                  name="nombre"
-                  placeholder="Tu nombre completo"
-                  value={formData.nombre}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg border-2 focus:outline-none transition-colors"
-                  style={{
-                    backgroundColor: '#FFF8E7',
-                    borderColor: formData.nombre ? '#F4A261' : '#E0D5C7',
-                    color: '#3D2B1F',
-                  }}
-                  onFocus={(e) => (e.currentTarget.style.borderColor = '#F4A261')}
-                  onBlur={(e) => (e.currentTarget.style.borderColor = formData.nombre ? '#F4A261' : '#E0D5C7')}
-                />
+                <div className="relative">
+                  <User className="absolute left-3 top-3.5 h-4 w-4" style={{ color: '#F4A261' }} />
+                  <input
+                    id="nombre"
+                    type="text"
+                    name="nombre"
+                    placeholder="Tu nombre completo"
+                    value={formData.nombre}
+                    onChange={handleChange}
+                    className="w-full pl-10 pr-4 py-3 rounded-lg border-2 focus:outline-none transition-colors"
+                    style={{
+                      backgroundColor: '#FFF8E7',
+                      borderColor: formData.nombre ? '#F4A261' : '#E0D5C7',
+                      color: '#3D2B1F',
+                    }}
+                    onFocus={(e) => (e.currentTarget.style.borderColor = '#F4A261')}
+                    onBlur={(e) => (e.currentTarget.style.borderColor = formData.nombre ? '#F4A261' : '#E0D5C7')}
+                  />
+                </div>
               </div>
 
               {/* Email */}
@@ -200,22 +206,55 @@ export default function Home() {
                 >
                   Email *
                 </label>
-                <input
-                  id="email"
-                  type="email"
-                  name="email"
-                  placeholder="tu@email.com"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg border-2 focus:outline-none transition-colors"
-                  style={{
-                    backgroundColor: '#FFF8E7',
-                    borderColor: formData.email ? '#F4A261' : '#E0D5C7',
-                    color: '#3D2B1F',
-                  }}
-                  onFocus={(e) => (e.currentTarget.style.borderColor = '#F4A261')}
-                  onBlur={(e) => (e.currentTarget.style.borderColor = formData.email ? '#F4A261' : '#E0D5C7')}
-                />
+                <div className="relative">
+                  <Mail className="absolute left-3 top-3.5 h-4 w-4" style={{ color: '#F4A261' }} />
+                  <input
+                    id="email"
+                    type="email"
+                    name="email"
+                    placeholder="tu@email.com"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="w-full pl-10 pr-4 py-3 rounded-lg border-2 focus:outline-none transition-colors"
+                    style={{
+                      backgroundColor: '#FFF8E7',
+                      borderColor: formData.email ? '#F4A261' : '#E0D5C7',
+                      color: '#3D2B1F',
+                    }}
+                    onFocus={(e) => (e.currentTarget.style.borderColor = '#F4A261')}
+                    onBlur={(e) => (e.currentTarget.style.borderColor = formData.email ? '#F4A261' : '#E0D5C7')}
+                  />
+                </div>
+              </div>
+
+              {/* WhatsApp */}
+              <div>
+                <label
+                  htmlFor="whatsapp"
+                  className="block text-sm font-medium mb-2"
+                  style={{ color: '#3D2B1F' }}
+                >
+                  WhatsApp
+                </label>
+                <div className="relative">
+                  <MessageCircle className="absolute left-3 top-3.5 h-4 w-4" style={{ color: '#F4A261' }} />
+                  <input
+                    id="whatsapp"
+                    type="tel"
+                    name="whatsapp"
+                    placeholder="+57 300 123 4567"
+                    value={formData.whatsapp}
+                    onChange={handleChange}
+                    className="w-full pl-10 pr-4 py-3 rounded-lg border-2 focus:outline-none transition-colors"
+                    style={{
+                      backgroundColor: '#FFF8E7',
+                      borderColor: formData.whatsapp ? '#F4A261' : '#E0D5C7',
+                      color: '#3D2B1F',
+                    }}
+                    onFocus={(e) => (e.currentTarget.style.borderColor = '#F4A261')}
+                    onBlur={(e) => (e.currentTarget.style.borderColor = formData.whatsapp ? '#F4A261' : '#E0D5C7')}
+                  />
+                </div>
               </div>
 
               {/* Título de la idea */}
@@ -227,22 +266,25 @@ export default function Home() {
                 >
                   Título de la idea *
                 </label>
-                <input
-                  id="titulo"
-                  type="text"
-                  name="titulo"
-                  placeholder="Dale un nombre a tu idea"
-                  value={formData.titulo}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg border-2 focus:outline-none transition-colors"
-                  style={{
-                    backgroundColor: '#FFF8E7',
-                    borderColor: formData.titulo ? '#F4A261' : '#E0D5C7',
-                    color: '#3D2B1F',
-                  }}
-                  onFocus={(e) => (e.currentTarget.style.borderColor = '#F4A261')}
-                  onBlur={(e) => (e.currentTarget.style.borderColor = formData.titulo ? '#F4A261' : '#E0D5C7')}
-                />
+                <div className="relative">
+                  <BookOpen className="absolute left-3 top-3.5 h-4 w-4" style={{ color: '#F4A261' }} />
+                  <input
+                    id="titulo"
+                    type="text"
+                    name="titulo"
+                    placeholder="Dale un nombre a tu idea"
+                    value={formData.titulo}
+                    onChange={handleChange}
+                    className="w-full pl-10 pr-4 py-3 rounded-lg border-2 focus:outline-none transition-colors"
+                    style={{
+                      backgroundColor: '#FFF8E7',
+                      borderColor: formData.titulo ? '#F4A261' : '#E0D5C7',
+                      color: '#3D2B1F',
+                    }}
+                    onFocus={(e) => (e.currentTarget.style.borderColor = '#F4A261')}
+                    onBlur={(e) => (e.currentTarget.style.borderColor = formData.titulo ? '#F4A261' : '#E0D5C7')}
+                  />
+                </div>
               </div>
 
               {/* Descripción */}
@@ -254,22 +296,25 @@ export default function Home() {
                 >
                   Descripción de la idea *
                 </label>
-                <textarea
-                  id="descripcion"
-                  name="descripcion"
-                  rows={4}
-                  placeholder="Cuéntanos tu idea con el detalle que quieras. No hay respuestas incorrectas."
-                  value={formData.descripcion}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg border-2 focus:outline-none transition-colors resize-none"
-                  style={{
-                    backgroundColor: '#FFF8E7',
-                    borderColor: formData.descripcion ? '#F4A261' : '#E0D5C7',
-                    color: '#3D2B1F',
-                  }}
-                  onFocus={(e) => (e.currentTarget.style.borderColor = '#F4A261')}
-                  onBlur={(e) => (e.currentTarget.style.borderColor = formData.descripcion ? '#F4A261' : '#E0D5C7')}
-                />
+                <div className="relative">
+                  <FileText className="absolute left-3 top-3 h-4 w-4" style={{ color: '#F4A261' }} />
+                  <textarea
+                    id="descripcion"
+                    name="descripcion"
+                    rows={4}
+                    placeholder="Cuéntanos tu idea con el detalle que quieras. No hay respuestas incorrectas."
+                    value={formData.descripcion}
+                    onChange={handleChange}
+                    className="w-full pl-10 pr-4 py-3 rounded-lg border-2 focus:outline-none transition-colors resize-none"
+                    style={{
+                      backgroundColor: '#FFF8E7',
+                      borderColor: formData.descripcion ? '#F4A261' : '#E0D5C7',
+                      color: '#3D2B1F',
+                    }}
+                    onFocus={(e) => (e.currentTarget.style.borderColor = '#F4A261')}
+                    onBlur={(e) => (e.currentTarget.style.borderColor = formData.descripcion ? '#F4A261' : '#E0D5C7')}
+                  />
+                </div>
               </div>
 
               {/* Toggles */}
@@ -342,7 +387,7 @@ export default function Home() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-3 rounded-full font-bold text-white transition-all duration-200 disabled:opacity-75"
+                className="w-full py-3 rounded-full font-bold text-white transition-all duration-200 disabled:opacity-75 flex items-center justify-center gap-2"
                 style={{
                   backgroundColor: isSubmitting ? '#E76F51' : '#F4A261',
                 }}
@@ -350,6 +395,7 @@ export default function Home() {
                 onMouseLeave={(e) => !isSubmitting && (e.currentTarget.style.backgroundColor = '#F4A261')}
               >
                 {isSubmitting ? 'Enviando...' : 'Enviar idea'}
+                {!isSubmitting && <Send className="h-4 w-4" />}
               </button>
             </form>
           </>
