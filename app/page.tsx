@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef } from 'react';
-import { User, Mail, BookOpen, FileText, Send } from 'lucide-react';
+import { User, Mail, BookOpen, FileText, Send, MessageCircle } from 'lucide-react';
 
 interface LogEntry {
   timestamp: string;
@@ -13,6 +13,7 @@ export default function Home() {
   const [formData, setFormData] = useState({
     nombre: '',
     email: '',
+    whatsapp: '',
     titulo: '',
     descripcion: '',
     requiere_presupuesto: false,
@@ -78,6 +79,7 @@ export default function Home() {
     const payload = {
       nombre: formData.nombre,
       email: formData.email,
+      whatsapp: formData.whatsapp,
       titulo: formData.titulo,
       descripcion: formData.descripcion,
       requiere_presupuesto: formData.requiere_presupuesto,
@@ -117,6 +119,7 @@ export default function Home() {
     setFormData({
       nombre: '',
       email: '',
+      whatsapp: '',
       titulo: '',
       descripcion: '',
       requiere_presupuesto: false,
@@ -221,6 +224,36 @@ export default function Home() {
                     }}
                     onFocus={(e) => (e.currentTarget.style.borderColor = '#F4A261')}
                     onBlur={(e) => (e.currentTarget.style.borderColor = formData.email ? '#F4A261' : '#E0D5C7')}
+                  />
+                </div>
+              </div>
+
+              {/* WhatsApp */}
+              <div>
+                <label
+                  htmlFor="whatsapp"
+                  className="block text-sm font-medium mb-2"
+                  style={{ color: '#3D2B1F' }}
+                >
+                  WhatsApp
+                </label>
+                <div className="relative">
+                  <MessageCircle className="absolute left-3 top-3.5 h-4 w-4" style={{ color: '#F4A261' }} />
+                  <input
+                    id="whatsapp"
+                    type="tel"
+                    name="whatsapp"
+                    placeholder="+57 300 123 4567"
+                    value={formData.whatsapp}
+                    onChange={handleChange}
+                    className="w-full pl-10 pr-4 py-3 rounded-lg border-2 focus:outline-none transition-colors"
+                    style={{
+                      backgroundColor: '#FFF8E7',
+                      borderColor: formData.whatsapp ? '#F4A261' : '#E0D5C7',
+                      color: '#3D2B1F',
+                    }}
+                    onFocus={(e) => (e.currentTarget.style.borderColor = '#F4A261')}
+                    onBlur={(e) => (e.currentTarget.style.borderColor = formData.whatsapp ? '#F4A261' : '#E0D5C7')}
                   />
                 </div>
               </div>
