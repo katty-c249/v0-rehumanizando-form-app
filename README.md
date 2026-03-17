@@ -1,8 +1,14 @@
 # REHUMANIZANDO 💛
 ![Built with AI](https://img.shields.io/badge/Built%20with-AI-blue?style=for-flat-square.&logo=openai)
+
 ## Qué hace
 1. Ayuda a que todo el personal de una empresa aporte ideas para mejorar la convivencia, la productividad y la puntualidad.
 2. Clasifica estas ideas y/o propuestas y guía en los próximos pasos de la donación y/o a realizar un presupuesto viable; garantizando la sostenibilidad en el tiempo del mismo.
+
+   ## Demo
+
+https://github.com/user-attachments/assets/92c988ea-55bc-47ab-8fe9-0fb40e3deff6
+
 
 ## Arquitectura
 Form (Vercel) → Webhook (Make) → OpenRouter #1 (analizar) → Sheets (log) → OpenRouter #2 (generar) → Gmail
@@ -101,6 +107,34 @@ Solicitar cotizaciones a tres proveedores de transporte accesible antes del vier
 - Google Sheets (logging)
 - Gmail (envío)
 
-## Demo
-https://v0.app/chat/rehumanizando-form-app-4opWpAfv4sB?ref=V4NIXO
+<details>
+<summary><b>👁️ Haz clic aquí para ver el Plan de Mejora detallado</b></summary>
+
+## 🚀 Hoja de Ruta: Plan de Mejora (30 Días)
+
+![Built With AI](https://img.shields.io/badge/BUILT_WITH-AI-007acc?style=for-flat-square.&logo=ai)
+
+Este proyecto está en evolución. Aquí detallo los pasos para llevar este prototipo a un nivel profesional:
+
+### 📅 Cronograma de Implementación
+
+#### **Semana 1: Pulido de Interfaz (UX) y Feedback 🖌️**
+* **Iconografía:** Integración de `Lucide-react` para guiar la vista del usuario.
+* **Micro-interacciones:** Estados de carga (spinners) y notificaciones tipo *Toast*.
+* **Jerarquía Visual:** Optimización de espaciados y tipografía para reducir la fatiga.
+
+#### **Semana 2: Comunicación Activa 🔔**
+* **Notificaciones Push:** Avisos en tiempo real sobre el estado del envío.
+* **Feedback Dinámico:** Mensajes de éxito/error personalizados.
+
+#### **Semana 3: Acceso Simplificado 🔑**
+* **OAuth (Google Login):** Implementación de acceso con un solo clic.
+* **Seguridad:** Manejo de sesiones seguras.
+
+#### **Semana 4: Integridad y Moderación 🛡️**
+* **Filtro de Contenido:** Moderación automática de lenguaje inapropiado.
+* **Validación Zod:** Esquemas de datos estrictos para evitar errores en la base de datos.
+
+</details>
+
 
